@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Homebtn from './components/Homebtn';
 import NavBar from './components/NavBar';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-  <Homebtn />
   <NavBar />,
   </React.StrictMode>,
   document.getElementById('root')
