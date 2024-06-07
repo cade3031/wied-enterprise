@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Homebtn from './componets/Homebtn';
+import Homebtn from './components/Homebtn';
 
 ReactDOM.render(
   <React.StrictMode>
