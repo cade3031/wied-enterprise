@@ -3,7 +3,7 @@ import './NavBar.css'
 
 function NavBar(){
     return (
-        <div>
+        <div className="navbarbtn">
         <button onClick={() => window.location.href='https://wiedenterprise.com'}>Home</button>
         <button onClick={() => window.location.href='https://wiedenterprise.com/about'}>About</button>
         <button onClick={() => window.location.href='https://wiedenterprise.com/contact'}>Contact</button>
