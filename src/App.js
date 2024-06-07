@@ -4,6 +4,7 @@ function App() {
   return (
     <div className="App">
 	  <title>Wied Enterprise</title>
+    {homebtn()}
     </div>
 
   );
