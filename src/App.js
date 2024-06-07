@@ -1,5 +1,5 @@
 import './App.css';
-import Homebtn from './components/Homebtn';
+import Homebtn from './src/components/Homebtn';
 
 function App() {
   return (
