@@ -4,7 +4,6 @@
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    /* Medium Green background for the navbar */
     border-radius: 5px;
 }
 
@@ -28,4 +27,20 @@
 .navbar button:hover {
     color: #4caf51;
     /* Medium Green text on hover */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        /* Stack buttons vertically */
+        align-items: center;
+    }
+
+    .navbar button {
+        width: 100%;
+        /* Make buttons full width */
+        margin: 5px 0;
+        /* Add some vertical margin */
+    }
 }

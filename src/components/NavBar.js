@@ -1,14 +1,15 @@
 import React from 'react'
 import './NavBar.css'
+import logo from './airborne-innovations-logo.png'
 
 function NavBar(){
     return (
         <div className='navbar'>
         <button onClick={() => window.location.href='https://wiedenterprise.com'}>Home</button>
         <button onClick={() => window.location.href='https://wiedenterprise.com/about'}>About</button>
-        <button onClick={() => window.location.href='https://wiedenterprise.com/contact'}>Contact</button>
+        <img src={logo} alt="Airborne Innovations Logo" height="50"></img>
         <button onClick={() => window.location.href='https://wiedenterprise.com/services'}>Services</button>
-        <button onClick={() => window.location.href='https://wiedenterprise.com/faq'}>FAQ</button>
+        <button onClick={() => window.location.href='https://wiedenterprise.com/contact'}>Contact</button>
     </div>
     );
  }
