@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Homebtn from './components/Homebtn';
+import Homebtn from './componets/Homebtn';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Homebtn />
   </React.StrictMode>,
+  <Homebtn />,
   document.getElementById('root')
 );
 
