@@ -1,6 +1,6 @@
 import React from 'react'
 
-function homebtn() {
+function Homebtn() {
     return (
         <div> 
             <button OnClick ={() => window.location.href = 'https://wiedenterprise.com'}>Home</button>
@@ -8,4 +8,4 @@ function homebtn() {
     )
 }
 
-export default homebtn;
+export default Homebtn;
