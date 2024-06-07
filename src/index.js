@@ -6,8 +6,8 @@ import Homebtn from './components/Homebtn';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
   <Homebtn />,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
