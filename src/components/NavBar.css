@@ -1,5 +1,31 @@
-.button {
+/* Navbar container styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    /* Medium Green background for the navbar */
+    border-radius: 5px;
+}
+
+/* Button styles */
+.navbar button {
     font-size: 16px;
     font-weight: bold;
-    color: #ffff
+    color: #ffffff;
+    /* White text */
+    background-color: transparent;
+    /* Transparent background */
+    padding: 10px 20px;
+    border: none;
+    /* No border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Button hover styles */
+.navbar button:hover {
+    color: #4caf51;
+    /* Medium Green text on hover */
 }
