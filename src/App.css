@@ -3,10 +3,9 @@
 
  }
 
- @media (max-width: 768px) {}
+ @media screen and (max-width: 480px) {
+     body {
+         background: #232323;
 
- .navbar {
-     flex-direction: column;
-     /* Stack buttons vertically */
-     align-items: center;
+     }
  }
