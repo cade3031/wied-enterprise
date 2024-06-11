@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import Content from "./components/Content";
 import NavBar from "./components/NavBar";
+import ParticlesComponent from "./components/Particles";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <div className="main-content"></div>
         <Content />
         <NavBar />
+        <ParticlesComponent id="particles" />
       </div>
     </>
   );
