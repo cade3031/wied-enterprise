@@ -56,3 +56,14 @@
 .highlight-aboutMe:hover{
     color: #fff;
 }   
+.services-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    background-color: #1e1e1e;
+    margin: 50px auto;
+    max-width: 600px;
+}

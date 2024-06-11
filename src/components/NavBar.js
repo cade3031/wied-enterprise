@@ -3,32 +3,45 @@ import "./NavBar.css";
 import logo from "./airborne-innovations-logo.png";
 
 function NavBar() {
-  const [show, setShow] = useState(false);
-  const [modalContent, setModalContent] = useState("");
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [popUpContent, setPopUpContent] = useState("");
+
+  const togglePopup = (content) => {
+    setPopUpContent(content);
+    setShowPopUp(!showPopUp);
+  };
 
   return (
     <div className="navbar">
-      <button
-        onClick={() => (window.location.href = "https://wiedenterprise.com")}
-      >
-        Home
-      </button>
-      <button onClick={() => "https://wiedenterprise.com/about"}>About</button>
       <img src={logo} alt="Airborne Innovations Logo" height="123"></img>
-      <button
-        onClick={() =>
-          (window.location.href = "https://wiedenterprise.com/services")
-        }
-      >
-        Services
-      </button>
-      <button
-        onClick={() =>
-          (window.location.href = "https://wiedenterprise.com/contact")
-        }
-      >
-        Contact
-      </button>
+
+      <div className="Servicebtn">
+        <button onClick={() => togglePopup("")}>Services</button>
+      </div>
+
+      <div className="Contactbtn">
+        <button
+          onClick={() =>
+            togglePopup(
+              "Linkedin: https://www.linkedin.com/in/cade/-wied-493228287 GitHub: https://github.com/cade3031/"
+            )
+          }
+        >
+          Contact{" "}
+        </button>
+      </div>
+
+      <button onClick={() => togglePopup("")}>Projects</button>
+      {showPopUp && (
+        <div className="popup">
+          <div className="popup-content">
+            <span className="close" onClick={() => setShowPopUp(false)}>
+              &times;
+            </span>
+            {popUpContent}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

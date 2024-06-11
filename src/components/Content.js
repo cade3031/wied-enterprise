@@ -12,12 +12,11 @@ const IntroParagraph = () => {
           I'm a <span className="highlight">Full Stack Developer</span>
         </h2>
         <p>
-          I am a full-stack web developer serving with the 82nd Airborne
-          Division. I specialize in building dynamic and robust web applications
-          using a variety of languages and frameworks. My mission is to deliver
-          high-quality, scalable solutions that meet the needs of modern users.
+          In the 82nd Airborne Division. I specialize in building dynamic and
+          robust web applications using a variety of languages and frameworks.
+          My mission is to deliver high-quality, scalable solutions that meet
+          the needs of modern users.
         </p>
-        <button className="highlight-aboutMe">More About Me</button>
       </div>
     </section>
   );
