@@ -10,8 +10,8 @@ const ParticlesComponent = (props) => {
     }).then(() => {
       setInit(true);
     });
-  }, []);
-
+    }, [setInit]);
+    
   const particlesLoaded = (container) => {
     console.log(container);
   };

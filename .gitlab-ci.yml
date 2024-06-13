@@ -1,0 +1,53 @@
+stages:
+  - build
+  - test
+  - deploy
+
+default:
+  image: node:14
+
+build-job:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+    - echo "Build contents:"
+    - ls -al
+    - echo "Build directory contents:"
+    - ls -al build
+  artifacts:
+    paths:
+      - build/
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+test-html:
+  stage: test
+  script:
+    - npm install --save-dev htmlhint
+    - npx htmlhint "build/**/*.html"
+  dependencies:
+    - build-job
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+deploy:
+  stage: deploy
+  image: busybox
+  script:
+    - echo "Deploy stage: Checking artifacts"
+    - ls -al
+    - ls -al build
+    - mkdir -p public
+    - mv build/* public/
+  dependencies:
+    - build-job
+  artifacts:
+    paths:
+      - public/
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
