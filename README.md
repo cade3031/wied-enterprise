@@ -22,4 +22,7 @@ create docker image and container for nginx
 docker build -f Dockerfile.nginx -t nginx-image . //docker image
 docker run -d --name my-nginx-container -p 80:80 nginx-image //docker container
 
+\\\\\\\\\\TO START ALL CONTAINERS ///////////
+docker-compose-up --build
+
 Finally, tell the user how to access the running application. If it's a web application, it's likely accessible at http://localhost:3000.
