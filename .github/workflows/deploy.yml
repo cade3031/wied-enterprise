@@ -1,47 +1,58 @@
-name: Deploy to DigitalOcean
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
-      - master
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-     
-    -name: Set up Node.js
-     uses: actions/setup-node@v3
-     with:
-       node-version: '20'
-    
-    -name: Install dependencies
-      run: npm install 
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-   -name: Run build 
-      run: npm run build 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-    - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.8.1
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Install dependencies
+        run: npm install
 
-    - name: Deploy to DigitalOcean
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-       host: ${{ secrets.DIGITALOCEAN_HOST }}
-       username: ${{ secrets.DIGITALOCEAN_USERNAME }}
-       key: ${{ secrets.SSH_PRIVATE_KEY }}
-       port: ${{ secret.DIGITALOCEAN_PORT }}
-       script: |
-         cd /var/www/wiedenterprise
-         git pull origin master
-         npm install 
-         pm2 restart all 
-      run: |
-        ssh -o StrictHostKeyChecking=no wiedenterprise@198.211.103.241 'bash -s' < /usr/local/bin/deploy.sh
+      - name: Build project
+        run: npm run build
 
+      - name: Test project
+        run: npm test
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build/
+
+      - name: Deploy to server
+        run: |
+          echo "Deploying to server..."
+          # Add your deployment commands here
+          # For example, you could use rsync, scp, or any deployment tool
+          # rsync -avz build/ user@server:/path/to/deploy/
