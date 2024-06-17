@@ -1,0 +1,27 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  image: node:14
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+test:
+  stage: test
+  image: node:14
+  script:
+    - npm install
+    - npm test
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying..."
+    # Add your deploy commands here
